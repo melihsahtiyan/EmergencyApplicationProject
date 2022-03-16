@@ -9,9 +9,9 @@ namespace Core.Utilities.Helpers
 {
     public class FormFileHelper
     {
-        public static string Add(IFormFile formFile)
+        public static string Add(IFormFile formFile, string fileType)
         {
-            var result = FileStorageTool(formFile);
+            var result = FileStorageTool(formFile, fileType);
             
             try
             {
@@ -44,9 +44,9 @@ namespace Core.Utilities.Helpers
             return new SuccessResult();
         }
 
-        public static string Update(IFormFile file, string pathToUpdate)
+        public static string Update(IFormFile file, string pathToUpdate, string fileType)
         {
-            var result = FileStorageTool(file);
+            var result = FileStorageTool(file, fileType);
             try
             {
                 if (pathToUpdate.Length>0)
@@ -65,18 +65,18 @@ namespace Core.Utilities.Helpers
 
             return result.oldGuidPath;
         }
-        public static (string newGuidPath, string oldGuidPath) FileStorageTool(IFormFile formFile)
+        public static (string newGuidPath, string oldGuidPath) FileStorageTool(IFormFile formFile, string fileType)
         {
             FileInfo file = new FileInfo(formFile.FileName);
             string fileExtension = file.Extension;
 
             var newGuidPath = Guid.NewGuid().ToString("D") + fileExtension;
 
-            string path = Environment.CurrentDirectory + @"\wwwroot\images";
+            string path = Environment.CurrentDirectory + $@"\wwwroot\{fileType}";
 
             string result = $@"{path}\{newGuidPath}";
 
-            return (result, $"\\images\\{newGuidPath}");
+            return (result, $"\\{fileType}\\{newGuidPath}");
         }
     }
 }
