@@ -9,8 +9,11 @@ namespace Business.Abstract
 {
     public interface IPostService
     {
-        IDataResult<List<Post>> GetAllCategories();
+        IDataResult<List<Post>> GetAllPosts();
+        IDataResult<List<Post>> GetAllByCategory(int categoryId);
         IDataResult<Post> GetById(int id);
+        IDataResult<Post> GetByCustomerIdAndLatestDate(int customerId);
+        IDataResult<Post> GetByDateLatest();
         IResult Add(Post post);
         IResult Update(Post post);
         IResult Delete(Post post); 
@@ -18,9 +21,9 @@ namespace Business.Abstract
         IDataResult<List<PostTextDto>> GetAllTextPosts();
         IDataResult<List<PostVideoDto>> GetAllVideosPosts();
         IDataResult<List<PostVoiceDto>> GetAllVoicePosts();
-        IDataResult<PostImageDto> GetImagePost(int id);
-        IDataResult<PostTextDto> GetTextPost(int id);
-        IDataResult<PostVideoDto> GetVideosPost(int id);
-        IDataResult<PostVoiceDto> GetVoicePost(int id);
+        IDataResult<PostImageDto> GetImagePostByCustomerId(int id);
+        IDataResult<PostTextDto> GetTextPostByCustomerId(int id);
+        IDataResult<PostVideoDto> GetVideosPostByCustomerId(int id);
+        IDataResult<PostVoiceDto> GetVoicePostByCustomerId(int id);
     }
 }

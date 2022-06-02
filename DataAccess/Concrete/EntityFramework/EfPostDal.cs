@@ -24,12 +24,15 @@ namespace DataAccess.Concrete.EntityFramework
                     select new PostImageDto
                     {
                         Id = p.Id,
+                        CustomerId = c.Id,
                         CategoryName = ctg.CategoryName,
                         Description = p.Description,
                         FirstName = u.FirstName,
                         LastName = u.LastName,
                         IdentityNumber = c.IdentityNumber,
-                        ImagePath = i.ImagePath
+                        ImagePath = i.ImagePath,
+                        Latitude = p.Latitude,
+                        Longitude = p.Longitude
                     };
                 return result.ToList();
             }
@@ -46,11 +49,14 @@ namespace DataAccess.Concrete.EntityFramework
                     select new PostTextDto()
                     {
                         Id = p.Id,
+                        CustomerId = c.Id,
                         CategoryName = ctg.CategoryName,
                         Description = p.Description,
                         FirstName = u.FirstName,
                         LastName = u.LastName,
-                        IdentityNumber = c.IdentityNumber
+                        IdentityNumber = c.IdentityNumber,
+                        Latitude = p.Latitude,
+                        Longitude = p.Longitude
                     };
                 return result.ToList();
             }
@@ -68,12 +74,15 @@ namespace DataAccess.Concrete.EntityFramework
                     select new PostVideoDto
                     {
                         Id = p.Id,
+                        CustomerId = c.Id,
                         CategoryName = ctg.CategoryName,
                         Description = p.Description,
                         FirstName = u.FirstName,
                         LastName = u.LastName,
                         IdentityNumber = c.IdentityNumber,
-                        VideoPath = v.VideoPath
+                        VideoPath = v.VideoPath,
+                        Latitude = p.Latitude,
+                        Longitude = p.Longitude
                     };
                 return result.ToList();
             }
@@ -91,18 +100,21 @@ namespace DataAccess.Concrete.EntityFramework
                     select new PostVoiceDto
                     {
                         Id = p.Id,
+                        CustomerId = c.Id,
                         CategoryName = ctg.CategoryName,
                         Description = p.Description,
                         FirstName = u.FirstName,
                         LastName = u.LastName,
                         IdentityNumber = c.IdentityNumber,
-                        VoicePath = v.VoicePath
+                        VoicePath = v.VoicePath,
+                        Latitude = p.Latitude,
+                        Longitude = p.Longitude
                     };
                 return result.ToList();
             }
         }
 
-        public PostImageDto GetImagePost(int id)
+        public PostImageDto GetImagePostByCustomerId(int id)
         {
             using (EmergencyDatabaseContext context = new EmergencyDatabaseContext())
             {
@@ -115,18 +127,21 @@ namespace DataAccess.Concrete.EntityFramework
                     select new PostImageDto
                     {
                         Id = p.Id,
+                        CustomerId = c.Id,
                         CategoryName = ctg.CategoryName,
                         Description = p.Description,
                         FirstName = u.FirstName,
                         LastName = u.LastName,
                         IdentityNumber = c.IdentityNumber,
-                        ImagePath = i.ImagePath
+                        ImagePath = i.ImagePath,
+                        Latitude = p.Latitude,
+                        Longitude = p.Longitude
                     };
                 return result.First();
             }
         }
 
-        public PostTextDto GetTextPost(int id)
+        public PostTextDto GetTextPostByCustomerId(int id)
         {
             using (EmergencyDatabaseContext context = new EmergencyDatabaseContext())
             {
@@ -138,17 +153,20 @@ namespace DataAccess.Concrete.EntityFramework
                     select new PostTextDto
                     {
                         Id = p.Id,
+                        CustomerId = c.Id,
                         CategoryName = ctg.CategoryName,
                         Description = p.Description,
                         FirstName = u.FirstName,
                         LastName = u.LastName,
-                        IdentityNumber = c.IdentityNumber
+                        IdentityNumber = c.IdentityNumber,
+                        Latitude = p.Latitude,
+                        Longitude = p.Longitude
                     };
                 return result.First();
             }
         }
 
-        public PostVideoDto GetVideosPost(int id)
+        public PostVideoDto GetVideosPostByCustomerId(int id)
         {
             using (EmergencyDatabaseContext context = new EmergencyDatabaseContext())
             {
@@ -161,18 +179,21 @@ namespace DataAccess.Concrete.EntityFramework
                     select new PostVideoDto
                     {
                         Id = p.Id,
+                        CustomerId = c.Id,
                         CategoryName = ctg.CategoryName,
                         Description = p.Description,
                         FirstName = u.FirstName,
                         LastName = u.LastName,
                         IdentityNumber = c.IdentityNumber,
-                        VideoPath = v.VideoPath
+                        VideoPath = v.VideoPath,
+                        Latitude = p.Latitude,
+                        Longitude = p.Longitude
                     };
                 return result.First();
             }
         }
 
-        public PostVoiceDto GetVoicePost(int id)
+        public PostVoiceDto GetVoicePostByCustomerId(int id)
         {
             using (EmergencyDatabaseContext context = new EmergencyDatabaseContext())
             {
@@ -185,12 +206,15 @@ namespace DataAccess.Concrete.EntityFramework
                     select new PostVoiceDto
                     {
                         Id = p.Id,
+                        CustomerId = c.Id,
                         CategoryName = ctg.CategoryName,
                         Description = p.Description,
                         FirstName = u.FirstName,
                         LastName = u.LastName,
                         IdentityNumber = c.IdentityNumber,
-                        VoicePath = v.VoicePath
+                        VoicePath = v.VoicePath,
+                        Latitude = p.Latitude,
+                        Longitude = p.Longitude
                     };
                 return result.First();
             }

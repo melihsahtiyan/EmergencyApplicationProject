@@ -13,9 +13,9 @@ namespace DataAccess.Abstract
         public List<PostTextDto> GetAllTextPosts();
         public List<PostVideoDto> GetAllVideosPosts();
         public List<PostVoiceDto> GetAllVoicePosts();
-        public PostImageDto GetImagePost(int id);
-        public PostTextDto GetTextPost(int id);
-        public PostVideoDto GetVideosPost(int id);
-        public PostVoiceDto GetVoicePost(int id);
+        public PostImageDto GetImagePostByCustomerId(int id);
+        public PostTextDto GetTextPostByCustomerId(int id);
+        public PostVideoDto GetVideosPostByCustomerId(int id);
+        public PostVoiceDto GetVoicePostByCustomerId(int id);
     }
 }

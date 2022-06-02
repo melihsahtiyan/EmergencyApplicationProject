@@ -11,12 +11,12 @@ namespace DataAccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\SQLEXPRESS;Database=EmergencyDataBase;Trusted_Connection=True");
+            optionsBuilder.UseSqlServer(@"Server=localhost\SQLEXPRESS;Database=EmergencyDataBase;Trusted_Connection=True");
         }
 
         public DbSet<User> Users { get; set; }
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<SystemStaff> SystemStaffs { get; set; }
+        public DbSet<SystemStaff> SystemStaves { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Image> Images { get; set; }

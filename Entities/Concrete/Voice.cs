@@ -8,7 +8,6 @@ namespace Entities.Concrete
     public class Voice : IEntity
     {
         public int Id { get; set; }
-        public int CustomerId { get; set; }
         public string VoicePath { get; set; }
         public DateTime Date { get; set; }
     }

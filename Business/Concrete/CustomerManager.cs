@@ -18,7 +18,7 @@ namespace Business.Concrete
             _customerDal = customerDal;
         }
 
-        public IDataResult<List<Customer>> GetAllCategories()
+        public IDataResult<List<Customer>> GetAllCustomers()
         {
             return new SuccessDataResult<List<Customer>>(_customerDal.GetAll());
         }
@@ -26,6 +26,11 @@ namespace Business.Concrete
         public IDataResult<Customer> GetById(int id)
         {
             return new SuccessDataResult<Customer>(_customerDal.Get(c => c.Id == id));
+        }
+
+        public IDataResult<Customer> GetByIdentityNumber(string identityNumber)
+        {
+            return new SuccessDataResult<Customer>(_customerDal.Get(c => c.IdentityNumber == identityNumber));
         }
 
         public IResult Add(Customer customer)

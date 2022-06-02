@@ -20,9 +20,14 @@ namespace Business.Concrete
         }
 
 
-        public IDataResult<List<Post>> GetAllCategories()
+        public IDataResult<List<Post>> GetAllPosts()
         {
             return new SuccessDataResult<List<Post>>(_postDal.GetAll(), Messages.PostsListed);
+        }
+
+        public IDataResult<List<Post>> GetAllByCategory(int categoryId)
+        {
+            return new SuccessDataResult<List<Post>>(_postDal.GetAll(p => p.CategoryId == categoryId),Messages.PostListed);
         }
 
         public IDataResult<Post> GetById(int id)
@@ -32,6 +37,7 @@ namespace Business.Concrete
 
         public IResult Add(Post post)
         {
+            post.Date = DateTime.Now;
             _postDal.Add(post);
             return new SuccessResult(Messages.PostAdded);
         }
@@ -68,24 +74,35 @@ namespace Business.Concrete
             return new SuccessDataResult<List<PostVoiceDto>>(_postDal.GetAllVoicePosts(), Messages.VoicePostsListed);
         }
 
-        public IDataResult<PostImageDto> GetImagePost(int id)
+        public IDataResult<PostImageDto> GetImagePostByCustomerId(int id)
         {
-            return new SuccessDataResult<PostImageDto>(_postDal.GetImagePost(id), Messages.ImagePost);
+            return new SuccessDataResult<PostImageDto>(_postDal.GetImagePostByCustomerId(id), Messages.ImagePost);
         }
 
-        public IDataResult<PostTextDto> GetTextPost(int id)
+        public IDataResult<PostTextDto> GetTextPostByCustomerId(int id)
         {
-            return new SuccessDataResult<PostTextDto>(_postDal.GetTextPost(id), Messages.TextPost);
+            return new SuccessDataResult<PostTextDto>(_postDal.GetTextPostByCustomerId(id), Messages.TextPost);
         }
 
-        public IDataResult<PostVideoDto> GetVideosPost(int id)
+        public IDataResult<PostVideoDto> GetVideosPostByCustomerId(int id)
         {
-            return new SuccessDataResult<PostVideoDto>(_postDal.GetVideosPost(id), Messages.VideoPost);
+            return new SuccessDataResult<PostVideoDto>(_postDal.GetVideosPostByCustomerId(id), Messages.VideoPost);
         }
 
-        public IDataResult<PostVoiceDto> GetVoicePost(int id)
+        public IDataResult<PostVoiceDto> GetVoicePostByCustomerId(int id)
         {
-            return new SuccessDataResult<PostVoiceDto>(_postDal.GetVoicePost(id), Messages.VoicePost);
+            return new SuccessDataResult<PostVoiceDto>(_postDal.GetVoicePostByCustomerId(id), Messages.VoicePost);
+        }
+
+        public IDataResult<Post> GetByCustomerIdAndLatestDate(int customerId)
+        {
+            return new SuccessDataResult<Post>(
+                _postDal.GetAll(p => p.CustomerId == customerId).FindLast(p => p.Date == DateTime.Today));
+        }
+
+        public IDataResult<Post> GetByDateLatest()
+        {
+            return new SuccessDataResult<Post>(_postDal.GetAll().FindLast(p => p.Date == DateTime.Today));
         }
     }
 }

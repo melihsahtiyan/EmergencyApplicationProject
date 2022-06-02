@@ -10,9 +10,12 @@ namespace Entities.Concrete
         public int Id { get; set; }
         public int CustomerId { get; set; }
         public int CategoryId { get; set; }
-        public int ImageId { get; set; }
-        public int VideoId { get; set; }
-        public int VoiceId { get; set; }
+        public int? ImageId { get; set; }
+        public int? VideoId { get; set; }
+        public int? VoiceId { get; set; }
+        public DateTime Date { get; set; }
         public string Description { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
     }
 }

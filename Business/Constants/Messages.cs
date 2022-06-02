@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Business.Constants
@@ -51,5 +52,7 @@ namespace Business.Constants
         public static string VoiceAdded = "Voice has been added!";
         public static string VoiceUpdated = "Voice has been updated!";
         public static string VoiceDeleted = "Voice has been deleted!";
+
+        public static string AuthorizationDenied = "Authorization failed";
     }
 }
