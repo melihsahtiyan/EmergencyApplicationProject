@@ -30,6 +30,11 @@ namespace Business.Concrete
             return new SuccessDataResult<Voice>(_voiceDal.Get(v => v.Id == id), Messages.VoiceListed);
         }
 
+        public IDataResult<Voice> GetByUserId(int userId)
+        {
+            return new SuccessDataResult<Voice>(_voiceDal.Get(v => v.UserId == userId), Messages.VoiceListed);
+        }
+
         public IResult Add(Voice voice)
         {
             _voiceDal.Add(voice);

@@ -28,7 +28,7 @@ namespace SwaggerApi.Controllers
             var result = _postService.GetAllPosts();
             if (result.Success)
             {
-                return Ok(result);
+                return Ok(result.Data);
             }
 
             return BadRequest(result.Message);
@@ -97,7 +97,7 @@ namespace SwaggerApi.Controllers
         [HttpGet("getimagepostbycustomer")]
         public IActionResult GetImagePostByCustomerId(int id)
         {
-            var result = _postService.GetImagePostByCustomerId(id);
+            var result = _postService.GetImagePostByUserId(id);
             if (result.Success)
             {
                 return Ok(result.Data);
@@ -109,7 +109,7 @@ namespace SwaggerApi.Controllers
         [HttpGet("gettextpostbycustomer")]
         public IActionResult GetTextPostByCustomerId(int id)
         {
-            var result = _postService.GetTextPostByCustomerId(id);
+            var result = _postService.GetTextPostByUserId(id);
             if (result.Success)
             {
                 return Ok(result.Data);
@@ -121,7 +121,7 @@ namespace SwaggerApi.Controllers
         [HttpGet("getvideopostbycustomer")]
         public IActionResult GetVideosPostByCustomerId(int id)
         {
-            var result = _postService.GetVideosPostByCustomerId(id);
+            var result = _postService.GetVideosPostByUserId(id);
             if (result.Success)
             {
                 return Ok(result.Data);
@@ -133,7 +133,7 @@ namespace SwaggerApi.Controllers
         [HttpGet("getvoicepostbycustomer")]
         public IActionResult GetVoicePostByCustomerId(int id)
         {
-            var result = _postService.GetVoicePostByCustomerId(id);
+            var result = _postService.GetVoicePostByUserId(id);
             if (result.Success)
             {
                 return Ok(result.Data);
@@ -159,7 +159,7 @@ namespace SwaggerApi.Controllers
         [HttpGet("getbycustomerandlatest")]
         public IActionResult GetByCustomerIdAndLatestDate(int customerId)
         {
-            var result = _postService.GetByCustomerIdAndLatestDate(customerId);
+            var result = _postService.GetByUserIdAndLatestDate(customerId);
             if (result.Success)
             {
                 return Ok(result.Data);
@@ -174,7 +174,7 @@ namespace SwaggerApi.Controllers
             var result = _postService.GetByDateLatest();
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
 
             return BadRequest(result.Message);

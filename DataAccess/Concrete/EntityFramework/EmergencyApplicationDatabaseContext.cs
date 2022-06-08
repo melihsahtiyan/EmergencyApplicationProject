@@ -15,7 +15,6 @@ namespace DataAccess.Concrete.EntityFramework
         }
 
         public DbSet<User> Users { get; set; }
-        public DbSet<Customer> Customers { get; set; }
         public DbSet<SystemStaff> SystemStaves { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Category> Categories { get; set; }

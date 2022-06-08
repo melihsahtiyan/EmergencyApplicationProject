@@ -30,6 +30,10 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<Image>(_imageDal.Get(i => i.Id == id));
         }
+        public IDataResult<Image> GetByUserId(int userId)
+        {
+            return new SuccessDataResult<Image>(_imageDal.Get(i => i.UserId == userId));
+        }
 
         public IResult Add(IFormFile file, Image image)
         {

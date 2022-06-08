@@ -21,7 +21,7 @@ namespace SwaggerApi.Controllers
         }
 
         [HttpGet("getall")]
-        IActionResult GetAll()
+        public IActionResult GetAll()
         {
             var result = _imageService.GetAll();
             if (result.Success)
@@ -33,7 +33,7 @@ namespace SwaggerApi.Controllers
         }
 
         [HttpGet("getbyid")]
-        IActionResult GetById(int id)
+        public IActionResult GetById(int id)
         {
             var result = _imageService.GetById(id);
             if (result.Success)
@@ -43,9 +43,19 @@ namespace SwaggerApi.Controllers
 
             return BadRequest(result.Message);
         }
+        [HttpGet("getbyuserid")]
+        public IActionResult GetByUserId(int userId)
+        {
+            var result = _imageService.GetByUserId(userId);
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
 
+            return BadRequest(result.Message);
+        }
         [HttpPost("add")]
-        IActionResult Add([FromForm(Name = "Image")] IFormFile file, [FromForm] Image image)
+        public IActionResult Add([FromForm(Name = "Image")] IFormFile file, [FromForm] Image image)
         {
             var result = _imageService.Add(file, image);
             if (result.Success)
@@ -57,7 +67,7 @@ namespace SwaggerApi.Controllers
         }
 
         [HttpPost("update")]
-        IActionResult Update([FromForm(Name = "Image")] IFormFile file, [FromForm] Image image)
+        public IActionResult Update([FromForm(Name = "Image")] IFormFile file, [FromForm] Image image)
         {
             var result = _imageService.Update(file, image);
             if (result.Success)
@@ -69,7 +79,7 @@ namespace SwaggerApi.Controllers
         }
 
         [HttpPost("delete")]
-        IActionResult Delete(Image image)
+        public IActionResult Delete(Image image)
         {
             var result = _imageService.Delete(image);
             if (result.Success)

@@ -11,6 +11,7 @@ namespace Business.Abstract
     {
         IDataResult<List<Image>> GetAll();
         IDataResult<Image> GetById(int id);
+        IDataResult<Image> GetByUserId(int userId);
         IResult Add(IFormFile file, Image image);
         IResult Update(IFormFile file, Image image);
         IResult Delete(Image image);

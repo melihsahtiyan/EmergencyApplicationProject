@@ -8,7 +8,7 @@ namespace Entities.Dtos
     public class PostVideoDto : IDto
     {
         public int Id { get; set; }
-        public int CustomerId { get; set; }
+        public int UserId { get; set; }
         public string CategoryName { get; set; }
         public string VideoPath { get; set; }
         public string FirstName { get; set; }

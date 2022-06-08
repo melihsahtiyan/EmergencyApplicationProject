@@ -8,7 +8,7 @@ namespace Entities.Concrete
     public class Post : IEntity
     {
         public int Id { get; set; }
-        public int CustomerId { get; set; }
+        public int UserId { get; set; }
         public int CategoryId { get; set; }
         public int? ImageId { get; set; }
         public int? VideoId { get; set; }

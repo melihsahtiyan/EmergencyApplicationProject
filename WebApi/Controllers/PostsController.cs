@@ -85,7 +85,7 @@ namespace WebApi.Controllers
         [HttpGet("getallwithimage")]
         IActionResult GetImagePostByCustomerId(int id)
         {
-            var result = _postService.GetImagePostByCustomerId(id);
+            var result = _postService.GetImagePostByUserId(id);
             if (result.Success)
             {
                 return Ok(result.Data);
@@ -97,7 +97,7 @@ namespace WebApi.Controllers
         [HttpGet("getallwithtext")]
         IActionResult GetTextPostByCustomerId(int id)
         {
-            var result = _postService.GetTextPostByCustomerId(id);
+            var result = _postService.GetTextPostByUserId(id);
             if (result.Success)
             {
                 return Ok(result.Data);
@@ -109,7 +109,7 @@ namespace WebApi.Controllers
         [HttpGet("getvideopostbycustomer")]
         IActionResult GetVideosPostByCustomerId(int id)
         {
-            var result = _postService.GetVideosPostByCustomerId(id);
+            var result = _postService.GetVideosPostByUserId(id);
             if (result.Success)
             {
                 return Ok(result.Data);
@@ -121,7 +121,7 @@ namespace WebApi.Controllers
         [HttpGet("getvoicepostbycustomer")]
         IActionResult GetVoicePostByCustomerId(int id)
         {
-            var result = _postService.GetVoicePostByCustomerId(id);
+            var result = _postService.GetVoicePostByUserId(id);
             if (result.Success)
             {
                 return Ok(result.Data);
@@ -147,7 +147,7 @@ namespace WebApi.Controllers
         [HttpGet("getbycustomerandlatest")]
         IActionResult GetByCustomerIdAndLatestDate(int customerId)
         {
-            var result = _postService.GetByCustomerIdAndLatestDate(customerId);
+            var result = _postService.GetByUserIdAndLatestDate(customerId);
             if (result.Success)
             {
                 return Ok(result.Data);

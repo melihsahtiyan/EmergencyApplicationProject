@@ -8,6 +8,7 @@ namespace Entities.Concrete
     public class Video : IEntity
     {
         public int Id { get; set; }
+        public int UserId { get; set; }
         public string VideoPath { get; set; }
         public DateTime Date { get; set; }
     }

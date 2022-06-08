@@ -12,7 +12,7 @@ namespace Business.Abstract
         IDataResult<List<Post>> GetAllPosts();
         IDataResult<List<Post>> GetAllByCategory(int categoryId);
         IDataResult<Post> GetById(int id);
-        IDataResult<Post> GetByCustomerIdAndLatestDate(int customerId);
+        IDataResult<Post> GetByUserIdAndLatestDate(int userId);
         IDataResult<Post> GetByDateLatest();
         IResult Add(Post post);
         IResult Update(Post post);
@@ -21,9 +21,9 @@ namespace Business.Abstract
         IDataResult<List<PostTextDto>> GetAllTextPosts();
         IDataResult<List<PostVideoDto>> GetAllVideosPosts();
         IDataResult<List<PostVoiceDto>> GetAllVoicePosts();
-        IDataResult<PostImageDto> GetImagePostByCustomerId(int id);
-        IDataResult<PostTextDto> GetTextPostByCustomerId(int id);
-        IDataResult<PostVideoDto> GetVideosPostByCustomerId(int id);
-        IDataResult<PostVoiceDto> GetVoicePostByCustomerId(int id);
+        IDataResult<PostImageDto> GetImagePostByUserId(int id);
+        IDataResult<PostTextDto> GetTextPostByUserId(int id);
+        IDataResult<PostVideoDto> GetVideosPostByUserId(int id);
+        IDataResult<PostVoiceDto> GetVoicePostByUserId(int id);
     }
 }

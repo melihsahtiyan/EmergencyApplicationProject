@@ -26,7 +26,7 @@ namespace Core.Utilities.Helpers
             {
                 return exception.Message;
             }
-
+            
             return result.oldGuidPath;
         }
 
@@ -76,7 +76,7 @@ namespace Core.Utilities.Helpers
 
             string result = $@"{path}\{newGuidPath}";
 
-            return (result, $"\\{fileType}\\{newGuidPath}");
+            return (result, $@"\{fileType}\{newGuidPath}");
         }
     }
 }

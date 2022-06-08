@@ -30,6 +30,11 @@ namespace Business.Concrete
             return new SuccessDataResult<Video>(_videoDal.Get(v => v.Id == id), Messages.VideoListed);
         }
 
+
+        public IDataResult<Video> GetByUserId(int userId)
+        {
+            return new SuccessDataResult<Video>(_videoDal.Get(v => v.UserId == userId), Messages.VideoListed);
+        }
         public IResult Add(Video video)
         {
             _videoDal.Add(video);

@@ -25,6 +25,15 @@ namespace Business.Concrete
             return new SuccessDataResult<List<User>>(_userDal.GetAll(), "Users listed");
         }
 
+        public IDataResult<List<OperationClaim>> GetClaims(User user)
+        {
+            return new SuccessDataResult<List<OperationClaim>>(_userDal.GetClaims(user));
+        }
+
+        public IDataResult<User> GetByMail(string email)
+        {
+            return new SuccessDataResult<User>(_userDal.Get(u => u.Email == email));
+        }
         public IDataResult<User> GetById(int id)
         {
             return new SuccessDataResult<User>(_userDal.Get(u => u.Id == id), "Users listed");
@@ -46,6 +55,11 @@ namespace Business.Concrete
         {
             _userDal.Update(user);
             return new SuccessResult("User has been updated");
+        }
+
+        public IDataResult<User> GetByIdentityNumber(string identityNumber)
+        {
+            return new SuccessDataResult<User>(_userDal.Get(u => u.IdentityNumber == identityNumber));
         }
     }
 }

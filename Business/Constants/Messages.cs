@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
@@ -42,17 +43,43 @@ namespace Business.Constants
         public static string SystemStaffDeleted = "System staff has been deleted!";
 
         public static string SystemStaffUpdated = "System staff has been updated!";
+
         public static string VideosPosted = "Videos has been listed";
+
         public static string VideoListed = "Video has been listed";
+
         public static string VideoAdded = "Video has been added!";
+
         public static string VideoDeleted = "Video has been deleted!";
+
         public static string VideoUpdated = "Video has been updated!";
+
         public static string VoicesListed = "Voices has been listed";
+
         public static string VoiceListed = "Voice has been listed";
+
         public static string VoiceAdded = "Voice has been added!";
+
         public static string VoiceUpdated = "Voice has been updated!";
+
         public static string VoiceDeleted = "Voice has been deleted!";
 
         public static string AuthorizationDenied = "Authorization failed";
+
+        public static string UserRegistered = "User registered";
+
+        public static string UserNotFound = "User not found";
+
+        public static string PasswordError = "Password error";
+        
+        public static string SuccessfulLogin = "Successful login";
+
+        public static string SamePassword = "Same password";
+
+        public static string UserUpdated = "User updated";
+
+        public static string UserAlreadyExists = "User already exists";
+
+        public static string AccessTokenCreated = "Access token created";
     }
 }

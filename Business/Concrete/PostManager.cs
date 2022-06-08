@@ -74,30 +74,30 @@ namespace Business.Concrete
             return new SuccessDataResult<List<PostVoiceDto>>(_postDal.GetAllVoicePosts(), Messages.VoicePostsListed);
         }
 
-        public IDataResult<PostImageDto> GetImagePostByCustomerId(int id)
+        public IDataResult<PostImageDto> GetImagePostByUserId(int id)
         {
-            return new SuccessDataResult<PostImageDto>(_postDal.GetImagePostByCustomerId(id), Messages.ImagePost);
+            return new SuccessDataResult<PostImageDto>(_postDal.GetImagePostByUserId(id), Messages.ImagePost);
         }
 
-        public IDataResult<PostTextDto> GetTextPostByCustomerId(int id)
+        public IDataResult<PostTextDto> GetTextPostByUserId(int id)
         {
-            return new SuccessDataResult<PostTextDto>(_postDal.GetTextPostByCustomerId(id), Messages.TextPost);
+            return new SuccessDataResult<PostTextDto>(_postDal.GetTextPostByUserId(id), Messages.TextPost);
         }
 
-        public IDataResult<PostVideoDto> GetVideosPostByCustomerId(int id)
+        public IDataResult<PostVideoDto> GetVideosPostByUserId(int id)
         {
-            return new SuccessDataResult<PostVideoDto>(_postDal.GetVideosPostByCustomerId(id), Messages.VideoPost);
+            return new SuccessDataResult<PostVideoDto>(_postDal.GetVideosPostByUserId(id), Messages.VideoPost);
         }
 
-        public IDataResult<PostVoiceDto> GetVoicePostByCustomerId(int id)
+        public IDataResult<PostVoiceDto> GetVoicePostByUserId(int id)
         {
-            return new SuccessDataResult<PostVoiceDto>(_postDal.GetVoicePostByCustomerId(id), Messages.VoicePost);
+            return new SuccessDataResult<PostVoiceDto>(_postDal.GetVoicePostByUserId(id), Messages.VoicePost);
         }
 
-        public IDataResult<Post> GetByCustomerIdAndLatestDate(int customerId)
+        public IDataResult<Post> GetByUserIdAndLatestDate(int userId)
         {
             return new SuccessDataResult<Post>(
-                _postDal.GetAll(p => p.CustomerId == customerId).FindLast(p => p.Date == DateTime.Today));
+                _postDal.GetAll(p => p.UserId == userId).FindLast(p => p.Date == DateTime.Today));
         }
 
         public IDataResult<Post> GetByDateLatest()

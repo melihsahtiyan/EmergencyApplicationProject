@@ -11,6 +11,7 @@ namespace Business.Abstract
     {
         IDataResult<List<Video>> GetAll();
         IDataResult<Video> GetById(int id);
+        IDataResult<Video> GetByUserId(int userId);
         IResult Add(Video video);
         IResult Delete(Video video);
         IResult Update(Video video);

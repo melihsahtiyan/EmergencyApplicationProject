@@ -10,6 +10,7 @@ namespace Business.Abstract
     {
         IDataResult<List<Voice>> GetAll();
         IDataResult<Voice> GetById(int id);
+        IDataResult<Voice> GetByUserId(int userId);
         IResult Add(Voice voice);
         IResult Delete(Voice voice);
         IResult Update(Voice voice);
