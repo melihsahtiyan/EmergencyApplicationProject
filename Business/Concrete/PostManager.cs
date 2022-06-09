@@ -54,44 +54,14 @@ namespace Business.Concrete
             return new SuccessResult(Messages.PostDeleted);
         }
 
-        public IDataResult<List<PostImageDto>> GetAllImagePosts()
+        public IDataResult<List<PostDetailDto>> GetAllPostDetails()
         {
-            return new SuccessDataResult<List<PostImageDto>>(_postDal.GetAllImagePosts(), Messages.ImagePostsListed);
+            return new SuccessDataResult<List<PostDetailDto>>(_postDal.GetAllPostDetails(), Messages.ImagePostsListed);
         }
 
-        public IDataResult<List<PostTextDto>> GetAllTextPosts()
+        public IDataResult<PostDetailDto> GetPostDetailByUserId(int id)
         {
-            return new SuccessDataResult<List<PostTextDto>>(_postDal.GetAllTextPosts(), Messages.TextPostsListed);
-        }
-
-        public IDataResult<List<PostVideoDto>> GetAllVideosPosts()
-        {
-            return new SuccessDataResult<List<PostVideoDto>>(_postDal.GetAllVideosPosts(), Messages.VideoPostsListed);
-        }
-
-        public IDataResult<List<PostVoiceDto>> GetAllVoicePosts()
-        {
-            return new SuccessDataResult<List<PostVoiceDto>>(_postDal.GetAllVoicePosts(), Messages.VoicePostsListed);
-        }
-
-        public IDataResult<PostImageDto> GetImagePostByUserId(int id)
-        {
-            return new SuccessDataResult<PostImageDto>(_postDal.GetImagePostByUserId(id), Messages.ImagePost);
-        }
-
-        public IDataResult<PostTextDto> GetTextPostByUserId(int id)
-        {
-            return new SuccessDataResult<PostTextDto>(_postDal.GetTextPostByUserId(id), Messages.TextPost);
-        }
-
-        public IDataResult<PostVideoDto> GetVideosPostByUserId(int id)
-        {
-            return new SuccessDataResult<PostVideoDto>(_postDal.GetVideosPostByUserId(id), Messages.VideoPost);
-        }
-
-        public IDataResult<PostVoiceDto> GetVoicePostByUserId(int id)
-        {
-            return new SuccessDataResult<PostVoiceDto>(_postDal.GetVoicePostByUserId(id), Messages.VoicePost);
+            return new SuccessDataResult<PostDetailDto>(_postDal.GetPostDetailByUserId(id), Messages.VoicePost);
         }
 
         public IDataResult<Post> GetByUserIdAndLatestDate(int userId)

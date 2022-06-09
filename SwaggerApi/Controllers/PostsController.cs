@@ -46,46 +46,10 @@ namespace SwaggerApi.Controllers
             return BadRequest(result.Message);
         }
 
-        [HttpGet("getallwithimage")]
-        public IActionResult GetAllImagePosts()
-        {
-            var result = _postService.GetAllImagePosts();
-            if (result.Success)
-            {
-                return Ok(result.Data);
-            }
-
-            return BadRequest(result.Message);
-        }
-
-        [HttpGet("getallwithtext")]
-        public IActionResult GetAllTextPosts()
-        {
-            var result = _postService.GetAllTextPosts();
-            if (result.Success)
-            {
-                return Ok(result.Data);
-            }
-
-            return BadRequest(result.Message);
-        }
-
-        [HttpGet("getallwithvideo")]
-        public IActionResult GetAllVideosPosts()
-        {
-            var result = _postService.GetAllVideosPosts();
-            if (result.Success)
-            {
-                return Ok(result.Data);
-            }
-
-            return BadRequest(result.Message);
-        }
-
-        [HttpGet("getallwithvoice")]
+        [HttpGet("getallwithdetail")]
         public IActionResult GetAllVoicePosts()
         {
-            var result = _postService.GetAllVoicePosts();
+            var result = _postService.GetAllPostDetails();
             if (result.Success)
             {
                 return Ok(result.Data);
@@ -94,46 +58,10 @@ namespace SwaggerApi.Controllers
             return BadRequest(result.Message);
         }
 
-        [HttpGet("getimagepostbycustomer")]
-        public IActionResult GetImagePostByCustomerId(int id)
-        {
-            var result = _postService.GetImagePostByUserId(id);
-            if (result.Success)
-            {
-                return Ok(result.Data);
-            }
-
-            return BadRequest(result.Message);
-        }
-
-        [HttpGet("gettextpostbycustomer")]
-        public IActionResult GetTextPostByCustomerId(int id)
-        {
-            var result = _postService.GetTextPostByUserId(id);
-            if (result.Success)
-            {
-                return Ok(result.Data);
-            }
-
-            return BadRequest(result.Message);
-        }
-
-        [HttpGet("getvideopostbycustomer")]
-        public IActionResult GetVideosPostByCustomerId(int id)
-        {
-            var result = _postService.GetVideosPostByUserId(id);
-            if (result.Success)
-            {
-                return Ok(result.Data);
-            }
-
-            return BadRequest(result.Message);
-        }
-
-        [HttpGet("getvoicepostbycustomer")]
+        [HttpGet("getpostdetailbyuser")]
         public IActionResult GetVoicePostByCustomerId(int id)
         {
-            var result = _postService.GetVoicePostByUserId(id);
+            var result = _postService.GetPostDetailByUserId(id);
             if (result.Success)
             {
                 return Ok(result.Data);
