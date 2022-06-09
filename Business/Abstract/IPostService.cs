@@ -17,7 +17,13 @@ namespace Business.Abstract
         IResult Add(Post post);
         IResult Update(Post post);
         IResult Delete(Post post); 
-        IDataResult<List<PostDetailDto>> GetAllPostDetails();
-        IDataResult<PostDetailDto> GetPostDetailByUserId(int id);
+        IDataResult<List<PostImageDto>> GetAllImagePosts();
+        IDataResult<List<PostTextDto>> GetAllTextPosts();
+        IDataResult<List<PostVideoDto>> GetAllVideosPosts();
+        IDataResult<List<PostVoiceDto>> GetAllVoicePosts();
+        IDataResult<PostImageDto> GetImagePostByUserId(int id);
+        IDataResult<PostTextDto> GetTextPostByUserId(int id);
+        IDataResult<PostVideoDto> GetVideosPostByUserId(int id);
+        IDataResult<PostVoiceDto> GetVoicePostByUserId(int id);
     }
 }

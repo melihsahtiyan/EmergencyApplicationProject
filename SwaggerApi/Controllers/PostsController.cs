@@ -46,10 +46,10 @@ namespace SwaggerApi.Controllers
             return BadRequest(result.Message);
         }
 
-        [HttpGet("getallwithdetail")]
-        public IActionResult GetAllVoicePosts()
+        [HttpGet("getallwithimage")]
+        public IActionResult GetAllImagePosts()
         {
-            var result = _postService.GetAllPostDetails();
+            var result = _postService.GetAllImagePosts();
             if (result.Success)
             {
                 return Ok(result.Data);
@@ -58,10 +58,82 @@ namespace SwaggerApi.Controllers
             return BadRequest(result.Message);
         }
 
-        [HttpGet("getpostdetailbyuser")]
-        public IActionResult GetVoicePostByCustomerId(int id)
+        [HttpGet("getallwithtext")]
+        public IActionResult GetAllTextPosts()
         {
-            var result = _postService.GetPostDetailByUserId(id);
+            var result = _postService.GetAllTextPosts();
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+
+            return BadRequest(result.Message);
+        }
+
+        [HttpGet("getallwithvideo")]
+        public IActionResult GetAllVideosPosts()
+        {
+            var result = _postService.GetAllVideosPosts();
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+
+            return BadRequest(result.Message);
+        }
+
+        [HttpGet("getallwithvoice")]
+        public IActionResult GetAllVoicePosts()
+        {
+            var result = _postService.GetAllVoicePosts();
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+
+            return BadRequest(result.Message);
+        }
+
+        [HttpGet("getimagepostbyuser")]
+        public IActionResult GetImagePostByUserId(int id)
+        {
+            var result = _postService.GetImagePostByUserId(id);
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+
+            return BadRequest(result.Message);
+        }
+
+        [HttpGet("gettextpostbyuser")]
+        public IActionResult GetTextPostByUserId(int id)
+        {
+            var result = _postService.GetTextPostByUserId(id);
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+
+            return BadRequest(result.Message);
+        }
+
+        [HttpGet("getvideopostbyuser")]
+        public IActionResult GetVideosPostByUserId(int id)
+        {
+            var result = _postService.GetVideosPostByUserId(id);
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+
+            return BadRequest(result.Message);
+        }
+
+        [HttpGet("getvoicepostbyuser")]
+        public IActionResult GetVoicePostByUserId(int id)
+        {
+            var result = _postService.GetVoicePostByUserId(id);
             if (result.Success)
             {
                 return Ok(result.Data);
@@ -84,8 +156,8 @@ namespace SwaggerApi.Controllers
         }
 
 
-        [HttpGet("getbycustomerandlatest")]
-        public IActionResult GetByCustomerIdAndLatestDate(int customerId)
+        [HttpGet("getbyuserandlatest")]
+        public IActionResult GetByUserIdAndLatestDate(int customerId)
         {
             var result = _postService.GetByUserIdAndLatestDate(customerId);
             if (result.Success)
